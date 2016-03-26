@@ -18,7 +18,7 @@ Separate an interface into surfaces.
 Effectively use transitions and motion.
 
 ## Android Developer Nanodegree
-[![udacity][1]][2]
+[![udacity][2]
 
 [1]: ../master/art/nanodegree-logo.png
 [2]: https://www.udacity.com/course/android-developer-nanodegree--nd801
