@@ -130,7 +130,7 @@ public class DetailActivity extends AppCompatActivity {
                 }
             }
         });
-
+//
         Picasso.with(DetailActivity.this).load(imageUrl).fit()
                 .into(itemImage, new GetDetailPalette(DetailActivity.this, rootView, model.getPhoto()));
     }

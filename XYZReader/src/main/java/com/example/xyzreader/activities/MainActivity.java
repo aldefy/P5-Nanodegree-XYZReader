@@ -1,11 +1,15 @@
 package com.example.xyzreader.activities;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -58,6 +62,14 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
             listFragment = new ListFragment();
         transaction.replace(R.id.frameContainer, listFragment, "fragGrid");
         transaction.commit();
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        if (!(activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting()))
+            Snackbar.make(coordinator,"Photos wont load in offline mode",Snackbar.LENGTH_SHORT).show();
+
     }
 
 
@@ -68,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         intent.putExtra(Utils.IMAGE_URL, model.getPhoto());
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             //options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, view, "toolbarImage");
-            options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create(view, "toolbarImage"), Pair.create(view, "date"),Pair.create(view,"author"));
+            options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, Pair.create(view, "toolbarImage"), Pair.create(view, "date"), Pair.create(view, "author"));
             startActivity(intent, options.toBundle());
         } else {
             startActivity(intent);
