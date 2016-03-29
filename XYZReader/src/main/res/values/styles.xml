@@ -17,12 +17,50 @@
 
 <resources>
 
-    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
 
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorControlHighlight">@color/primary_light</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white_sub</item>
+        <item name="android:icon">@color/icons</item>
+        <item name="android:divider">@color/divider</item>
     </style>
 
-    <style name="Theme.Bacon.Detail">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <style name="AspectRatioImageView" parent="AspectRatioImageView.Base" />
+
+    <style name="AspectRatioImageView.Base">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="aspectRatio">0.56</item>
+        <item name="layout_collapseMode">parallax</item>
     </style>
+
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+    <style name="TextAppearance.App.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:lineSpacingMultiplier">@fraction/text_line_spacing_title</item>
+    </style>
+    <style name="TextAppearance.App.Headline" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:lineSpacingMultiplier">@fraction/text_line_spacing</item>
+    </style>
+    <style name="TextAppearance.App.Subhead" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:lineSpacingMultiplier">@fraction/text_line_spacing</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
 </resources>

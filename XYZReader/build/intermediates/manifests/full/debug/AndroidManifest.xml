@@ -14,12 +14,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name="com.example.xyzreader.MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.Bacon" >
+        android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.xyzreader.ui.ArticleListActivity"
+            android:name="com.example.xyzreader.activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,33 +29,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.xyzreader.ui.ArticleDetailActivity"
-            android:parentActivityName="com.example.xyzreader.ui.ArticleListActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+            android:name="com.example.xyzreader.activities.DetailActivity"
+            android:label="@string/app_name" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+        <!-- Updating this will cause a database upgrade -->
+        <meta-data
+            android:name="Rush_db_version"
+            android:value="1" />
 
-                <data android:mimeType="vnd.android.cursor.item/vnd.com.example.xyzreader.items" />
-            </intent-filter>
+        <!-- Database name -->
+        <meta-data
+            android:name="Rush_db_name"
+            android:value="moviesfav.db" />
 
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ArticleListActivity" />
-        </activity>
+        <!--
+        Setting this to true will cause a migration to happen every launch,
+        this is very handy during development although could cause data loss
+        -->
+        <meta-data
+            android:name="Rush_debug"
+            android:value="false" />
 
-        <service
-            android:name="com.example.xyzreader.data.UpdaterService"
-            android:exported="false" />
+        <!--
+        Setting this to true mean that tables will only be created of classes that
+        extend RushObject and are annotated with @RushTableAnnotation
+        -->
+        <meta-data
+            android:name="Rush_requires_table_annotation"
+            android:value="false" />
 
-        <provider
-            android:name="com.example.xyzreader.data.ItemsProvider"
-            android:authorities="com.example.xyzreader"
-            android:exported="false" />
-
-        <activity
-            android:name="android.support.v7.widget.TestActivity"
-            android:label="RecyclerViewTestActivity" />
+        <!-- Turning on logging can be done by settings this value to true -->
+        <meta-data
+            android:name="Rush_log"
+            android:value="false" />
     </application>
 
 </manifest>

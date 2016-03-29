@@ -7,5 +7,9 @@
     <dimen name="fab_elevation">2dp</dimen>
     <dimen name="fab_press_translation_z">6dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
+    <dimen name="appbar_elevation">4dp</dimen>
+    <dimen name="detail_body_bottom_margin">32dp</dimen>
+    <item name="text_line_spacing" format="float" type="fraction">1.2</item>
+    <item name="text_line_spacing_title" format="float" type="fraction">1</item>
 
 </resources>

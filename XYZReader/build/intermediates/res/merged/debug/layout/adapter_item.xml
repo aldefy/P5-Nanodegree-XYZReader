@@ -1,0 +1,97 @@
+<android.support.v7.widget.CardView android:id="@+id/cardView"
+                                    xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    xmlns:tools="http://schemas.android.com/tools"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_marginRight="4dp"
+                                    android:layout_marginTop="4dp"
+                                    android:clickable="true"
+                                    android:focusable="false"
+                                    android:foreground="?android:attr/selectableItemBackground"
+                                    android:transitionName="toolbarImage"
+                                    app:cardCornerRadius="5dp"
+                                    app:cardElevation="4dp"
+                                    app:cardUseCompatPadding="true"
+                                    tools:targetApi="lollipop">
+
+    <RelativeLayout
+        android:id="@+id/mainContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--  <com.example.xyzreader.views.AspectRatioImageView
+              android:id="@+id/thumbnail"
+              style="@style/AspectRatioImageView"
+              android:layout_alignParentTop="true"
+              android:minHeight="200dp"
+              tools:src="@drawable/ic_placeholder"/>-->
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:minHeight="200dp"
+            android:scaleType="fitXY"
+            android:transitionName="toolbarImage"
+            tools:src="@drawable/ic_placeholder"
+            />
+
+        <TextView
+            android:id="@+id/timeLabel"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="6dp"
+            android:background="#8d000000"
+            android:gravity="center"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:transitionName="date"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:text="4 days ago"/>
+
+        <LinearLayout
+            android:id="@+id/textContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/itemImage"
+            android:orientation="vertical"
+            tools:background="@color/primary_dark">
+
+            <TextView
+                android:id="@+id/article_title"
+                style="@style/TextAppearance.App.Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:paddingBottom="4dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="16dp"
+                android:textColor="@color/white"
+                tools:text="Article Title"/>
+
+            <TextView
+                android:id="@+id/article_subtitle"
+                style="@style/TextAppearance.App.Subhead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:transitionName="author"
+                android:maxLines="1"
+                android:paddingBottom="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:singleLine="true"
+                android:textColor="@color/white_sub"
+                tools:text="Article SubTitle"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
